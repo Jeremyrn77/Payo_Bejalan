@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="6dp"
+    tools:context=".UbahActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubah Destinasi"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_margin="6dp"/>
+
+    <EditText
+        android:id="@+id/et_nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama Destinasi"
+        android:layout_marginTop="12dp"/>
+
+    <EditText
+        android:id="@+id/et_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alamat"/>
+
+    <EditText
+        android:id="@+id/et_jam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jam Operasional"/>
+
+    <Button
+        android:id="@+id/btn_ubah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UBAH"
+        android:layout_marginTop="12dp"/>
+
+</LinearLayout>
