@@ -4,46 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:layout_margin="6dp"
-    tools:context=".TambahActivity"
-    android:orientation="vertical">
+    tools:context=".TambahActivity">
 
     <TextView
-        android:id="@+id/tv_tambah"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tambah Destinasi"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        android:layout_margin="6dp"/>
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="32dp"
+        />
 
     <EditText
         android:id="@+id/et_nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nama Destinasi"
-        android:layout_marginTop="12dp"/>
+        android:hint="Nama Destinasi"
+        android:textSize="21sp"/>
 
     <EditText
         android:id="@+id/et_alamat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Alamat"/>
+        android:hint="Alamat"
+        android:textSize="21sp"/>
 
     <EditText
         android:id="@+id/et_jam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jam Operasional"/>
+        android:hint="Jam Operasional"
+        android:textSize="21sp"/>
 
     <Button
         android:id="@+id/btn_tambah"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TAMBAH"
-        android:layout_marginTop="12dp"/>
-
-
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:text="Tambah"
+        android:textSize="21sp"/>
 
 </LinearLayout>
