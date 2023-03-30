@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fabTambah;
     private RecyclerView rvDestinasi;
-    private MyDatabaseHelper myDb;
-    private ArrayList<String> arrNama, arrAlamat, arrJam;
+    private MyDatabaseHelper myDB;
+    private ArrayList<String> arrId, arrNama, arrAlamat, arrJam;
     private AdapterDestinasi adDestinasi;
 
     @Override
@@ -36,16 +36,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        myDb = new MyDatabaseHelper(MainActivity.this);
+        myDB = new MyDatabaseHelper(MainActivity.this);
     }
 
     private void SQLiteToArrayList(){
-        Cursor varCursor = myDb.bacaDataDestinasi();
+        Cursor varCursor = myDB.bacaDataDestinasi();
         if(varCursor.getCount() == 0){
             Toast.makeText(this, "Data Tidak Tersedia!", Toast.LENGTH_SHORT).show();
         }
         else{
             while (varCursor.moveToNext()){
+                arrId.add(varCursor.getString(0));
                 arrNama.add(varCursor.getString(1));
                 arrAlamat.add(varCursor.getString(2));
                 arrJam.add(varCursor.getString(3));
@@ -54,13 +55,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void tampilDestinasi(){
+        arrId = new ArrayList<>();
         arrNama = new ArrayList<>();
         arrAlamat = new ArrayList<>();
         arrJam = new ArrayList<>();
 
         SQLiteToArrayList();
 
-        adDestinasi = new AdapterDestinasi(MainActivity.this, arrNama, arrAlamat, arrJam);
+        adDestinasi = new AdapterDestinasi(MainActivity.this, arrId, arrNama, arrAlamat, arrJam);
         rvDestinasi.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         rvDestinasi.setAdapter(adDestinasi);
     }

@@ -11,6 +11,7 @@ import android.widget.Toast;
 public class TambahActivity extends AppCompatActivity {
     private EditText etNama, etAlamat, etJam;
     private Button btnTambah;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +48,7 @@ public class TambahActivity extends AppCompatActivity {
                         Toast.makeText(TambahActivity.this, "Tambah Data Gagal!", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        Toast.makeText(TambahActivity.this, "Tambah Data Berhasil", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TambahActivity.this, "Tambah Data Sukses!", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }

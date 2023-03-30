@@ -27,10 +27,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         /*
         CREATE TABLE tbl_destinasi (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nama VARCHAR(50),
-                alamat TEXT,
-                jam VARCHAR(30)
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nama VARCHAR(50),
+            alamat TEXT,
+            jam VARCHAR(30)
         );
          */
         String query = "CREATE TABLE " + TABLE_NAME + " (" +
@@ -50,7 +50,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long tambahData(String nama, String alamat, String jam){
+    public long tambahData(String nama, String alamat, String jam) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -58,7 +58,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(FIELD_ALAMAT, alamat);
         cv.put(FIELD_JAM, jam);
 
-        long eksekusi = db.insert(TABLE_NAME,null, cv);
+        long eksekusi = db.insert(TABLE_NAME, null, cv);
         return eksekusi;
     }
 
@@ -73,4 +73,24 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         return varCursor;
     }
+
+    public long ubahData(String id, String nama, String alamat, String jam) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(FIELD_NAMA, nama);
+        cv.put(FIELD_ALAMAT, alamat);
+        cv.put(FIELD_JAM, jam);
+
+        long eksekusi = db.update(TABLE_NAME, cv, "id = ?", new String[]{id});
+        return eksekusi;
+    }
+
+    public long hapusData(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        long eksekusi = db.delete(TABLE_NAME, "id = ?", new String[]{id});
+        return eksekusi;
+    }
+
 }
